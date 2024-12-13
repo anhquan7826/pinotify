@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fontWeightLight" type="integer">200</item>
+    <item name="fontWeightSemiLight" type="integer">200</item>
+    <item name="fontWeightNormal" type="integer">400</item>
+    <item name="fontWeightSemiBold" type="integer">500</item>
+    <item name="fontWeightBold" type="integer">600</item>
+    <item name="fontWeightExtraBold" type="integer">800</item>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.anhquan.pinotify.common.StatusView
+        android:id="@+id/fragment_status_basic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="@string/meet_basic_integrity"
+        app:status="failed" />
+
+    <com.anhquan.pinotify.common.StatusView
+        android:id="@+id/fragment_status_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="@string/meet_device_integrity"
+        app:status="failed" />
+
+    <com.anhquan.pinotify.common.StatusView
+        android:id="@+id/fragment_status_strong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:text="@string/meet_strong_integrity"
+        app:status="failed" />
+
+</LinearLayout>
