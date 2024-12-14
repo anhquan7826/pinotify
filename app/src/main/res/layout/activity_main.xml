@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_fragment_status"
-            android:name="com.anhquan.pinotify.status.PlayIntegrityStatusFragment"
+            android:name="com.anhquan.pinotify.view.status.PlayIntegrityStatusFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>

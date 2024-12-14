@@ -19,7 +19,7 @@ class StatusView(context: Context, attrs: AttributeSet) : ConstraintLayout(conte
         binding.commonStatusText.apply {
             this.text = text
             compoundDrawables.forEach {
-                it.setTint(context.getColor(if (status) R.color.passed else R.color.failed))
+                it?.setTint(context.getColor(if (status) R.color.passed else R.color.failed))
             }
         }
 

@@ -39,14 +39,19 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.integrity)
+    implementation(libs.google.playintegrity)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.kotlinx.coroutines.tasks)
+    implementation(libs.kotlinx.coroutines.playservice)
+    implementation(libs.google.apiclient)
+    implementation(libs.google.playservice.auth)
+    implementation(libs.google.auth)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
