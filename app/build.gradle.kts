@@ -7,6 +7,13 @@ android {
     namespace = "com.anhquan.pinotify"
     compileSdk = 35
 
+    packaging {
+        resources {
+            excludes.add("META-INF/INDEX.LIST")
+            excludes.add("META-INF/DEPENDENCIES")
+        }
+    }
+
     defaultConfig {
         applicationId = "com.anhquan.pinotify"
         minSdk = 30
@@ -48,9 +55,9 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.kotlinx.coroutines.tasks)
     implementation(libs.kotlinx.coroutines.playservice)
-    implementation(libs.google.apiclient)
-    implementation(libs.google.playservice.auth)
+    implementation(libs.google.apiservice.playintegrity)
     implementation(libs.google.auth)
+    implementation(libs.google.apiclient)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

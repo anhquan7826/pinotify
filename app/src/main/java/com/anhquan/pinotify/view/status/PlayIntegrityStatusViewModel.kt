@@ -11,6 +11,10 @@ import com.anhquan.pinotify.util.generateRandomString
 import com.google.android.play.core.integrity.IntegrityManagerFactory
 import com.google.android.play.core.integrity.IntegrityTokenResponse
 import com.google.android.play.core.integrity.StandardIntegrityManager.*
+import com.google.api.client.http.HttpTransport
+import com.google.api.client.http.javanet.NetHttpTransport
+import com.google.api.client.json.gson.GsonFactory
+import com.google.api.services.playintegrity.v1.PlayIntegrity
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
 
@@ -23,6 +27,7 @@ class PlayIntegrityStatusViewModel : ViewModel() {
 
     private val _requestHash: String = AppUtil.generateRandomString()
     private lateinit var _tokenProvider: StandardIntegrityTokenProvider
+    private lateinit var _playIntegrity: PlayIntegrity
 
     suspend fun initiate(context: Context) {
         _isReady.value = false
@@ -30,6 +35,7 @@ class PlayIntegrityStatusViewModel : ViewModel() {
             try {
                 initTokenProvider(context)
                 val integrityToken = getIntegrityToken()
+                Log.d("PlayIntegrityStatusViewModel", integrityToken.token())
                 _isReady.value = true
             } catch (_: Exception) {
                 continue
@@ -43,9 +49,19 @@ class PlayIntegrityStatusViewModel : ViewModel() {
                 IntegrityManagerFactory.createStandard(context).prepareIntegrityToken(
                     PrepareIntegrityTokenRequest
                         .builder()
-                        .setCloudProjectNumber(1231) // TODO: Set cloud project number.
+                        .setCloudProjectNumber(462837158343) // TODO: Set cloud project number.
                         .build()
                 ).await()
+        }
+    }
+
+    private suspend fun initPlayIntegrity() {
+        if (!this::_playIntegrity.isInitialized) {
+            _playIntegrity = PlayIntegrity.Builder(
+                NetHttpTransport.Builder().build(),
+                GsonFactory(),
+                null
+            ).build()
         }
     }
 
@@ -56,5 +72,9 @@ class PlayIntegrityStatusViewModel : ViewModel() {
                 .setRequestHash(_requestHash)
                 .build()
         ).await()
+    }
+
+    private suspend fun attestIntegrity(token: StandardIntegrityToken) {
+
     }
 }

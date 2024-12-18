@@ -13,9 +13,10 @@ integrity = "1.4.0"
 fragmentKtx = "1.8.5"
 coroutinesAndroid = "1.9.0"
 coroutinesPlayServices = "1.9.0"
-googleApiClient = "1.32.1"
-googlePlayServiceAuth = "20.6.0"
-googleAuth = "1.19.0"
+googleApiServicePlayIntegrity = "v1-rev20241127-2.0.0"
+googleAuth = "1.30.1"
+googleApiClient = "2.7.0"
+googleGson = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,9 +31,10 @@ google-playintegrity = { group = "com.google.android.play", name = "integrity", 
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 kotlinx-coroutines-tasks = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesAndroid" }
 kotlinx-coroutines-playservice = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutinesPlayServices"}
+google-apiservice-playintegrity = { group = "com.google.apis", name = "google-api-services-playintegrity", version.ref = "googleApiServicePlayIntegrity" }
 google-apiclient = { group = "com.google.api-client", name = "google-api-client", version.ref = "googleApiClient" }
-google-playservice-auth = { group = "com.google.android.gms", name = "play-service-auth", version.ref = "googlePlayServiceAuth" }
 google-auth = { group = "com.google.auth", name = "google-auth-library-oauth2-http", version.ref = "googleAuth" }
+google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "googleGson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
