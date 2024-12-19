@@ -1,7 +1,12 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 }
+
+val localProps = Properties()
+localProps.load(rootProject.file("local.properties").inputStream())
 
 android {
     namespace = "com.anhquan.pinotify"
@@ -22,6 +27,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("Long", "CLOUD_PROJECT_NUMBER", localProps.getProperty("CLOUD_PROJECT_NUMBER"))
     }
 
     buildTypes {
@@ -34,6 +41,7 @@ android {
         }
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
     compileOptions {

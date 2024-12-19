@@ -16,7 +16,6 @@ coroutinesPlayServices = "1.9.0"
 googleApiServicePlayIntegrity = "v1-rev20241127-2.0.0"
 googleAuth = "1.30.1"
 googleApiClient = "2.7.0"
-googleGson = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,7 +33,6 @@ kotlinx-coroutines-playservice = { group = "org.jetbrains.kotlinx", name = "kotl
 google-apiservice-playintegrity = { group = "com.google.apis", name = "google-api-services-playintegrity", version.ref = "googleApiServicePlayIntegrity" }
 google-apiclient = { group = "com.google.api-client", name = "google-api-client", version.ref = "googleApiClient" }
 google-auth = { group = "com.google.auth", name = "google-auth-library-oauth2-http", version.ref = "googleAuth" }
-google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "googleGson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
