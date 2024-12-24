@@ -62,7 +62,7 @@ class PlayIntegrityStatusViewModel : ViewModel() {
                 IntegrityManagerFactory.createStandard(context).prepareIntegrityToken(
                     PrepareIntegrityTokenRequest
                         .builder()
-                        .setCloudProjectNumber(BuildConfig.CLOUD_PROJECT_NUMBER)
+                        .setCloudProjectNumber(BuildConfig.CLOUD_PROJECT_NUMBER.toLong())
                         .build()
                 ).await()
         }
