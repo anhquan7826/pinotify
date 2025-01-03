@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.anhquan.pinotify.R
 import com.anhquan.pinotify.model.PlayIntegrityStatus
+import com.anhquan.pinotify.model.PlayIntegrityVerdict
 import com.anhquan.pinotify.util.AppUtil
 import com.anhquan.pinotify.util.generateRandomString
 import com.google.android.play.core.integrity.IntegrityManager
@@ -20,6 +21,7 @@ import com.google.api.services.playintegrity.v1.PlayIntegrity
 import com.google.api.services.playintegrity.v1.model.DecodeIntegrityTokenRequest
 import com.google.auth.http.HttpCredentialsAdapter
 import com.google.auth.oauth2.GoogleCredentials
+import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -73,11 +75,7 @@ class PlayIntegrityStatusViewModel @Inject constructor(
             DecodeIntegrityTokenRequest()
                 .setIntegrityToken(token.token())
         )
-        Log.d(
-            "PlayIntegrityStatusViewModel",
-            """decoded integrity token:
-                |${decodedPlayIntegrityToken.execute().toPrettyString()}
-            """.trimMargin()
-        )
+        val response = decodedPlayIntegrityToken.execute().toString()
+        Gson().fromJson(response, PlayIntegrityVerdict::class.java)
     }
 }
