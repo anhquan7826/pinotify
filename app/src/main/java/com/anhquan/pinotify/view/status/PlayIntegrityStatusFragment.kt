@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.anhquan.pinotify.databinding.FragmentPlayintegrityStatusBinding
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PlayIntegrityStatusFragment : Fragment() {
     private lateinit var binding: FragmentPlayintegrityStatusBinding
     private val viewModel: PlayIntegrityStatusViewModel by viewModels()
@@ -25,9 +24,7 @@ class PlayIntegrityStatusFragment : Fragment() {
     }
 
     override fun onStart() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.initiate(this@PlayIntegrityStatusFragment.requireContext())
-        }
+        viewModel.initiate(this@PlayIntegrityStatusFragment.requireContext())
         super.onStart()
     }
 }
